@@ -1,4 +1,4 @@
-<p align="center"><a href="https://1-stream.com/" target="_blank"><img src="https://assets.jobs.bg/assets/logo/2022-08-28/b_a11032cac6b606ddccf9e59c6688c506.png"></a></p>
+<p align="center"><a href="https://1-stream.com/" target="_blank"><img src="https://media.licdn.com/dms/image/v2/D4D0BAQFtRE55TiWz6A/company-logo_200_200/company-logo_200_200/0/1716463497277/1_stream_logo?e=2147483647&v=beta&t=fFOgAfiNiZuxsjwVPVvQz1Y7NsFEWm1XFhCO2AqYoD8"></a></p>
 
 
 ## Create the tables
