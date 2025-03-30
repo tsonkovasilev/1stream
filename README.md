@@ -63,7 +63,12 @@ A Laravel 12 application for managing **Web Streams** with a clean MVC architect
 - `app/Http/Controllers/Api/StreamApiController.php` — REST API
 - `app/Http/Middleware/ApiKeyAuth.php` — API key middleware
 - `resources/views/` — login, dashboard, edit/create Blade views
-- `public/css/app.css` — minimal shared styles
+- `public/css/app.css` — the styles
+
+## ✅ Todo / Extensions
+- Use Ajax-based DataTables loading -> new api for that
+- Export to CSV
+- New page to show the stream
 
 ---
 
@@ -97,6 +102,3 @@ json
 
 ### ❌ Delete Stream
 DELETE http://localhost:8000/api/streams/STREAM_UUID?api_key=YOUR_API_KEY
-
-### 👤 Get Authenticated User Info
-GET http://localhost:8000/api/me?api_key=YOUR_API_KEY
