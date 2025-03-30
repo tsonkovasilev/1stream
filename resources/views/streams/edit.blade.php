@@ -2,41 +2,37 @@
 <html>
 <head>
     <title>Edit Stream</title>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
-    <h2>Edit Stream: {{ $stream->title }}</h2>
+    <div class="wrapper">
+        <img src="{{ asset('images/logo.png') }}" alt="Logo" class="logo">
+        <h2>Edit Stream</h2>
 
-    @if ($errors->any())
-        <div style="color:red;">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+        @if ($errors->any())
+            <div class="error">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
-    <form method="POST" action="{{ route('streams.update', $stream) }}">
-        @csrf
-        @method('PUT')
+        <form method="POST" action="{{ route('streams.update', $stream) }}">
+            @csrf
+            @method('PUT')
 
-        <div>
-            <label>Title:</label>
-            <input type="text" name="title" value="{{ old('title', $stream->title) }}" required maxlength="255">
-        </div>
+            <label>Title</label>
+            <input type="text" name="title" value="{{ old('title', $stream->title) }}" required>
 
-        <div>
-            <label>Description:</label>
-            <textarea name="description" maxlength="655">{{ old('description', $stream->description) }}</textarea>
-        </div>
+            <label>Description</label>
+            <textarea name="description">{{ old('description', $stream->description) }}</textarea>
 
-        <div>
-            <label>Tokens Price:</label>
+            <label>Tokens Price</label>
             <input type="number" name="tokens_price" value="{{ old('tokens_price', $stream->tokens_price) }}" required>
-        </div>
 
-        <div>
-            <label>Type:</label>
+            <label>Type</label>
             <select name="type">
                 <option value="">-- None --</option>
                 @foreach ($types as $type)
@@ -45,15 +41,13 @@
                     </option>
                 @endforeach
             </select>
-        </div>
 
-        <div>
-            <label>Expiration Date (Y-m-d H:i:s):</label>
+            <label>Expiration Date (Y-m-d H:i:s)</label>
             <input type="text" name="date_expiration" value="{{ old('date_expiration', $stream->date_expiration) }}" required>
-        </div>
 
-        <button type="submit">Update Stream</button>
-        <a href="{{ route('dashboard') }}">Cancel</a>
-    </form>
+            <button type="submit">Update Stream</button>
+            <a href="{{ route('dashboard') }}" class="button-link">Cancel</a>
+        </form>
+    </div>
 </body>
 </html>

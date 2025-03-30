@@ -12,9 +12,13 @@ class StreamController extends Controller
 {
     public function index()
     {
-        $streams = Stream::with('streamType')
-            ->where('user_id', Auth::id())
-            ->paginate(10);
+        if (auth()->check()) {
+            $streams = \App\Models\Stream::with('streamType','user')
+                ->where('user_id', auth()->id())
+                ->get();
+        } else {
+            $streams = \App\Models\Stream::with('streamType')->get();
+        }
 
         return view('dashboard', compact('streams'));
     }

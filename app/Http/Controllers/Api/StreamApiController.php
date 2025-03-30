@@ -29,11 +29,7 @@ class StreamApiController extends Controller
 
     public function store(Request $request)
     {
-        if ($stream->user_id !== auth()->id()) {
-            return response()->json(['message' => 'Unauthorized'], 401);
-        }
-
-        $validated = $request->validate([
+       $validated = $request->validate([
             'title' => 'required|max:255',
             'description' => 'nullable|max:655',
             'tokens_price' => 'required|integer',
@@ -44,9 +40,9 @@ class StreamApiController extends Controller
         $stream = Stream::create([
             ...$validated,
             'id' => Str::uuid(),
-            'user_id' => auth()->id() ?? 1, // fallback for public testing
+            'user_id' => auth()->id(),
         ]);
-
+    
         return response()->json($stream, 201);
     }
 
