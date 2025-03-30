@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
@@ -10,7 +11,8 @@ class StreamApiController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Stream::query()->with('streamType');
+        $query = Stream::with('streamType')
+            ->whereBelongsTo(auth()->user());
 
         // Filtering
         if ($request->filled('type')) {
@@ -27,6 +29,10 @@ class StreamApiController extends Controller
 
     public function store(Request $request)
     {
+        if ($stream->user_id !== auth()->id()) {
+            return response()->json(['message' => 'Unauthorized'], 401);
+        }
+
         $validated = $request->validate([
             'title' => 'required|max:255',
             'description' => 'nullable|max:655',
@@ -46,7 +52,10 @@ class StreamApiController extends Controller
 
     public function update(Request $request, Stream $stream)
     {
-        // optional: enforce user ownership here
+        if (!auth()->check()) {
+            return response()->json(['message' => 'Unauthorized'], 401);
+        }
+
         $validated = $request->validate([
             'title' => 'required|max:255',
             'description' => 'nullable|max:655',

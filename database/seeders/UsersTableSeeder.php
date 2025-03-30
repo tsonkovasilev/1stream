@@ -16,6 +16,7 @@ class UsersTableSeeder extends Seeder
                 'name' => 'test1',
                 'email' => 'test1@example.com',
                 'password' => Hash::make('test1'),
+                'api_key' => Str::random(60),  // some random string 
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -23,6 +24,7 @@ class UsersTableSeeder extends Seeder
                 'name' => 'test2',
                 'email' => 'test2@example.com',
                 'password' => Hash::make('test2'),
+                'api_key' => Str::random(60), // some random string 
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

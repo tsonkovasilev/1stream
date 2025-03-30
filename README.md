@@ -3,7 +3,22 @@
 
 ## Create the tables
 
+<<<<<<< Updated upstream
 <ul>
 <li>php artisan make:model Stream -m</ul>
 <li>php artisan make:model StreamType -m</li>
 </ul>
+=======
+-php artisan make:model Stream -m
+-php artisan make:model StreamType -m
+
+
+Create new middleware for the api to check the api key
+php artisan make:middleware ApiKeyAuth
+
+Register the new separate route api like web and console
+bootstrap/app.php 
+
+add route to the API with ApiKeyAuth in 
+routes/api.php 
+>>>>>>> Stashed changes
