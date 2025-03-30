@@ -3,5 +3,7 @@
 
 ## Create the tables
 
--php artisan make:model Stream -m
--php artisan make:model StreamType -m
+<ul>
+<li></li>php artisan make:model Stream -m</ul>
+<li>php artisan make:model StreamType -m</li>
+</ul>
