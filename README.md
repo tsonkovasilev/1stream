@@ -4,6 +4,6 @@
 ## Create the tables
 
 <ul>
-<li></li>php artisan make:model Stream -m</ul>
+<li>php artisan make:model Stream -m</ul>
 <li>php artisan make:model StreamType -m</li>
 </ul>
