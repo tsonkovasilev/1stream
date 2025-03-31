@@ -125,3 +125,7 @@ tr:hover {
     align-items: center;
     gap: 10px;
 }
+
+.dataTables_filter ,.dataTables_length, .dataTables_paginate, .dataTables_info{
+    margin:10px 0 !important;
+}
